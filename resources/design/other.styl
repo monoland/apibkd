@@ -1,0 +1,61 @@
+.v-window-x-transition-enter,
+.v-window-x-transition-leave-to
+    opacity: 0 !important;
+    
+.v-window-x-transition-leave, 
+.v-window-x-transition-leave-to
+    right: 0
+    height: 100%
+
+.v-window-x-reverse-transition-leave, 
+.v-window-x-reverse-transition-leave-to
+    left: 0
+    height: 100%
+    
+.dialog-move-transition
+    &-enter-active, &-leave-active
+        transition: 0.18s cubic-bezier(0, 0, 0, 1)
+        
+    &-enter, &-leave-to
+        transform: translateX(100%)
+
+.line-height1
+    line-height: 1 !important
+
+.v-application--is-ltr .v-list-item__avatar:first-child
+    margin-right: 16px
+
+.v-application
+    .v-background__auth
+        &::before
+            background: rgba(99, 99, 99, 0.18)
+            position: absolute
+            content: ''
+            display: block
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            z-index: 0
+
+        > .v-responsive__content
+            position: relative
+            z-index: 1
+
+.v-content 
+    &__wrap
+        z-index: 1
+        overflow: hidden
+
+.v-alert
+    user-select: none
+
+.v-dialog
+    background: white
+
+.v-dialog:not(.v-dialog--fullscreen)
+    background: transparent
+    box-shadow: none
+
+.layout
+    max-width: 100%

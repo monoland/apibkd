@@ -1,0 +1,33 @@
+.v-card
+    &&--document
+        & > ^[0]__text
+            display: flex
+            position: relative
+            min-height: 45vh
+            overflow: hidden
+
+        & ^[0]__content
+            position: absolute
+            height: 100%
+            width: 100%
+
+        & ^[0]__uploader
+            position: relative
+            border: 2px dashed rgba(0, 0, 0, 0.2)
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            flex-grow: 1
+            height: 100%
+
+            &--button
+                position: absolute
+                padding: 6px 12px
+                border-radius: 2px
+                color: white
+
+            &--progress
+                position: absolute !important
+                padding: 0 24px
+                width: 100%

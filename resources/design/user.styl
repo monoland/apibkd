@@ -1,0 +1,19 @@
+.v-user
+    display: flex
+    align-items: center
+    user-select: none
+    cursor: pointer
+
+    &__content
+        flex: 1 1 0
+    
+    & &__action
+        .v-icon
+            transform: rotate(0deg)
+            transition: transform 0.2s linear
+        
+    &.expand
+        & ^[0]__action
+            .v-icon
+                transform: rotate(180deg)
+                transition: transform 0.2s linear

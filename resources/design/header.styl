@@ -1,0 +1,21 @@
+.v-header
+    position: relative
+
+    &__delete,
+    &__search
+        position: absolute
+        left: 0
+        height: 100%
+        width: 100%
+    
+    &__delete
+        z-index: 2
+
+    &__search
+        z-index: 1
+
+        input
+            display: flex
+            flex-grow: 1
+            padding-right: 4px
+            outline: none

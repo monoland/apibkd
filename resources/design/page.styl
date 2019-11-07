@@ -1,0 +1,67 @@
+.v-page
+    position: absolute
+    height: 100%
+    overflow: hidden
+    width: 100%
+
+    &__header
+        position: relative
+
+        &.absolute
+            position: absolute
+            top: 0
+            width: 100%
+            z-index: 1
+
+            & ~ ^[0]__content
+                padding-top: 64px
+                z-index: 0
+
+            &.mobile
+                & ~ ^[0]__content
+                    padding-bottom: 56px
+                    padding-top: 56px
+                    z-index: 0
+        
+        &:not(.mobile):not(.flat) ~ ^[0]__content > ^[0]__wrap
+            padding: 16px
+        
+        &--actions
+            position: relative
+
+            &:not(.selected)
+                padding-left: 52px
+
+            .v-btn.static
+                position: absolute
+                right: 52px
+
+        &--delete,
+        &--search
+            position: absolute
+            left: 0
+            height: 100%
+            width: 100%
+        
+        &--delete
+            z-index: 2
+
+        &--search
+            z-index: 1
+
+            input
+                display: flex
+                flex-grow: 1
+                padding-right: 4px
+                outline: none
+    
+    &__content
+        display: flex
+        flex: 1 1 auto
+        height: 100%
+
+    &__wrap
+        position: relative
+        flex: 1 1 auto
+        max-width: 100%
+        overflow-y: auto

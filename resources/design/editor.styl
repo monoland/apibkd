@@ -1,0 +1,32 @@
+.v-editor
+    display: flex
+    overflow: hidden
+
+    code:after, 
+    kbd:after
+        content: ''
+
+    code:before, 
+    kbd:before
+        content: "\A0"
+
+    code
+        box-shadow: none
+    
+    code[class*="language-"], 
+    pre[class*="language-"]
+        font-family: 'Ubuntu Mono'
+    
+    pre[class*="language-"]
+        margin: .5em 0 0
+        flex-grow: 1
+    
+    &__code
+        outline: none
+
+        &:focus
+            outline: none
+
+    &__line-numbers
+        text-align: right
+        width: 24px

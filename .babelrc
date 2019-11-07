@@ -1,0 +1,9 @@
+{
+    "plugins": [
+        ["prismjs", {
+            "languages": ["php", "html", "md", "javascript", "sql"],
+            "plugins": ["line-numbers"],
+            "theme": "tomorrow"
+        }]
+    ]
+}

@@ -1,0 +1,92 @@
+.v-application--is-ltr .v-filebrowser .v-input__append-outer
+    margin-left: 24px
+
+.v-filebrowser
+    &__wrap
+        display: flex
+        position: relative
+        height: 347px
+        overflow: hidden
+
+    &__content
+        position: absolute
+        height: 100%
+        width: 100%
+        padding: 16px 16px 60px
+
+        .lightbox
+            border: 1px dashed currentColor
+            border-radius: 4px
+    
+    &__extension
+        position: absolute
+        left: 0
+        height: 100%
+        width: 100%
+        padding: 4px 16px
+        z-index: 1
+    
+    &__search
+        position: relative
+        height: 100%
+        border-radius: 3px
+    
+    &__actions
+        position: relative
+        height: 48px
+        width: 48px
+
+        .v-btn
+            position: absolute
+            left: 0
+            top: 0
+        
+    &__foot
+        position: absolute
+        bottom: 10px
+        left: 16px
+
+.v-file
+    position: relative
+    padding: 10px 0 0 0
+    margin-top: 4px
+    min-height: 66px
+
+    &__wrap
+        position: relative
+        min-height: 56px
+
+        ^[0]__bttn
+            &:first-child
+                margin-bottom: 0
+
+    &__bttn
+        position: absolute
+        width: 100%
+        cursor: pointer
+        z-index: 1
+    
+    &__list
+        position: relative
+        min-height: 56px
+
+        ^[0]__item
+            &:first-child
+                margin-bottom: 0
+    
+    &__item
+        margin-bottom: 0
+
+        &:not(:first-child)
+            margin-top: 8px
+                
+
+.v-application--is-ltr 
+    .v-tabs-bar.v-tabs-bar--is-mobile:not(.v-tabs-bar--show-arrows) 
+        > .v-slide-group__wrapper 
+            > .v-tabs-bar__content 
+                > .v-tabs-slider-wrapper + .v-tab
+                    margin-left: 0
+
+    .v-data-table--fixed-header .v-data-footer
+        margin-right: 0

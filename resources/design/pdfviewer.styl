@@ -1,0 +1,43 @@
+.pdf-viewer
+    position: relative
+    height: 100%
+    width: 100%
+    padding-top: 48px
+
+    &__wrap
+        display: flex
+        position: absolute
+        height: calc(100% - 48px)
+        width: 100%
+        align-items: center
+        flex-direction: column
+        overflow: auto
+    
+    &__page
+        background: white
+        margin-bottom: 12px
+
+    &__info
+        position: absolute;
+        top: 0;
+        height: 48px
+        left: 0
+        width: 100%
+
+.pdf-info
+    &__page
+        display: flex
+        align-items: center
+
+        input
+            text-align: right 
+            outline: none
+            width: 32px
+        
+        span.total
+            display: block
+            width: 32px
+
+@media print
+    .pdf-viewer__wrap
+        // display: none
