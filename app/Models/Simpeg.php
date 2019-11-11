@@ -11,8 +11,8 @@ class Simpeg
     {
         $person = DB::connection('mysql')->select("SELECT
             CONCAT(IF(p.gldepan IS NULL or p.gldepan = '', '', CONCAT(p.gldepan, '. ')), p.nama, IF(p.glblk IS NULL or p.glblk = '', '', CONCAT(', ', p.glblk))) AS nama, 
-            p.kjkel,
-            p.nopen,
+            p.kjkel AS jenis_kelamin,
+            p.nopen AS no_ktp,
             p.ktlahir AS kotalahir,
             p.tlahir AS tglahir,
             t.ntpu AS pend_akhir,
@@ -20,10 +20,26 @@ class Simpeg
             k.nskawin AS status_kawin,
             s.nisua AS nama_pasangan,
             s.ktlahir AS kotalahir_pasangan,
-            s.tlahir AS tglahir_pasangan,
+            (CASE
+                WHEN j.jnsjab='1'
+                THEN (SELECT bup FROM ref_unkerja AS u WHERE j.kjab=u.kunker)
+                WHEN j.jnsjab='2'
+                THEN (SELECT usia FROM ref_jabfung AS f WHERE j.kjab=f.kjab)
+                WHEN j.jnsjab='4'
+                THEN (SELECT bup FROM ref_jabnstr AS n WHERE j.kjab=n.kjab)
+                ELSE 58
+            END) AS usia_pensiun,
+            (CASE 
+                WHEN b.tmtngaj < a.tmtpang
+                THEN a.gpok
+                ELSE b.gpokkhir
+            END) AS gaji_pokok,
+            CONCAT(RIGHT(s.tlahir, 4), '-', MID(s.tlahir, 3,2), '-', LEFT(s.tlahir, 2)) AS tglahir_pasangan,
             (SELECT COUNT(*) FROM riw_anak AS w WHERE w.nip = p.nip) AS jumlah_tanggungan,
             p.npwp,
             g.ngolru AS gol,
+            j.jnsjab,
+            j.kjab,
             j.njab AS jabatan,
             p.nip, 
             e.neselon AS esl,
