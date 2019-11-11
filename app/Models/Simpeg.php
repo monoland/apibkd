@@ -18,8 +18,6 @@ class Simpeg
             t.ntpu AS pend_akhir,
             i.nibu AS nama_ibu,
             k.nskawin AS status_kawin,
-            s.nisua AS nama_pasangan,
-            s.ktlahir AS kotalahir_pasangan,
             (CASE
                 WHEN j.jnsjab='1'
                 THEN (SELECT bup FROM ref_unkerja AS u WHERE j.kjab=u.kunker)
@@ -34,6 +32,8 @@ class Simpeg
                 THEN a.gpok
                 ELSE b.gpokkhir
             END) AS gaji_pokok,
+            s.nisua AS nama_pasangan,
+            s.ktlahir AS kotalahir_pasangan,
             CONCAT(RIGHT(s.tlahir, 4), '-', MID(s.tlahir, 3,2), '-', LEFT(s.tlahir, 2)) AS tglahir_pasangan,
             (SELECT COUNT(*) FROM riw_anak AS w WHERE w.nip = p.nip) AS jumlah_tanggungan,
             p.npwp,
